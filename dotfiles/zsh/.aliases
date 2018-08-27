@@ -1,4 +1,6 @@
-alias notes="open -a /Applications/Typora.app ~/Dropbox/Notes"
-alias tp="open -a /Applications/Typora.app"
-alias meso="cd ~/Github/mesophotic"
-alias scripts="cd ~/Github/radseq"
+if [ $(hostname) = "mdizg-pim" ]; then
+    alias notes="open -a /Applications/Typora.app ~/Dropbox/Notes"
+    alias tp="open -a /Applications/Typora.app"
+    alias meso="cd ~/Github/mesophotic"
+    alias scripts="cd ~/Github/radseq"
+fi

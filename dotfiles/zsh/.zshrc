@@ -1,4 +1,8 @@
-ZSH_DOTFILE_PATH="/Users/pbongaerts/Github/workflow/dotfiles/zsh"
+if [ $(hostname) = "mdizg-pim" ]; then
+    ZSH_DOTFILE_PATH="/home/pbongaerts/Github/workflow/dotfiles/zsh"
+elif [ $(hostname) = "deepcat1" ]; then
+    ZSH_DOTFILE_PATH="/home/pbongaerts/workflow/dotfiles/zsh"
+fi
 
 # Environmental variables
 source $ZSH_DOTFILE_PATH/.env

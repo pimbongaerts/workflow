@@ -9,7 +9,10 @@ COMPLETION_WAITING_DOTS="true"
 
 # Plugins to load (can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
-plugins=(git bundler osx rake ruby)
+plugins=(git bundler rake ruby)
+if [ $(hostname) = "mdizg-pim" ]; then
+    plugins(osx)
+fi
 
 # Use vim keybinds
 bindkey -v
