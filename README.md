@@ -16,3 +16,12 @@ Use CAPSLOCK as ESCAPE through System Preferences > Keyboard > Modified Keys
 
 Created a symlink for .zshrc file:
 ln -s ~/Github/workflow/dotfiles/zsh/.zshrc ~/.zshrc
+
+## Permits
+
+Retrieve updated list of (facultatively) zooxanthellate scleractinian genera for particular oceanic region from coraltraits.org (in this example "Indian Ocean"):
+
+```shell
+> join -t , <(curl -s https://coraltraits.org/traits/35.csv\?taxonomy\=on | grep -v "observation_id" | cut -d, -f4,5,7,8,22 | sort) <(curl -s https://coraltraits.org/traits/41.csv\?taxonomy\=on | grep -v "observation_id" | cut -d, -f4,5,22 | sort) | grep -v "azooxanthellate" | grep "Indian Ocean" | awk -F'[, ]' '{print "Family " $4 "," $2 " spp."}' | sort | uniq
+```
+
