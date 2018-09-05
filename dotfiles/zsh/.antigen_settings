@@ -1,14 +1,24 @@
-# Bundles from the default repo (robbyrussell's oh-my-zsh).
-antigen bundle command-not-found
+# Load the oh-my-zsh library
+antigen use oh-my-zsh
 
-# Syntax highlighting bundle.
+# Bundles from the default repo (robbyrussell's oh-my-zsh).
+antigen bundle brew
+antigen bundle command-not-found
+antigen bundle git
+antigen bundle bundler
+antigen bundle rake
+antigen bundle ruby
+antigen bundle osx
+antigen bundle vi-mode
+antigen bundle vundle
+antigen bundle zsh-users/zsh-completions src
 antigen bundle zsh-users/zsh-syntax-highlighting
 
 # ZSH port of Fish shell's history search feature.
 antigen bundle zsh-users/zsh-history-substring-search
 
 # Load the theme.
-antigen theme steeef
+antigen theme steeef 
 
 # Tell antigen that you're done.
 antigen apply

@@ -15,16 +15,7 @@ source $ZSH/oh-my-zsh.sh
 # Antigen
 echo "# ANTIGEN"
 source ~/.antigen/antigen.zsh
-antigen use oh-my-zsh
 source $ZSH_DOTFILE_PATH/.antigen_settings
-
-# General zsh settings
-echo "# ZSH SETTINGS"
-source $ZSH_DOTFILE_PATH/.zsh_settings
-
-# Fonts
-#echo "# FONTS"
-#source ~/.fonts/*.sh
 
 # Aliases
 echo "# ALIASES"

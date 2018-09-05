@@ -7,15 +7,19 @@ Using [zotero](https://www.zotero.org/) with [ZotFile](http://zotfile.com/). Kee
 ## Terminal
 Oh My Zsh - configuration manager for zsh: https://github.com/robbyrussell/oh-my-zsh
 Antigen - plug-in manager for zsh: https://github.com/zsh-users/antigen
-
+Vundle - plug-in manager for vim: https://github.com/VundleVim/Vundle.vim
 
 Created symlink for sublime:
 sudo ln -s /Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl /usr/local/bin/sb
 
 Use CAPSLOCK as ESCAPE through System Preferences > Keyboard > Modified Keys
 
-Created a symlink for .zshrc file:
+Created a symlink for .zshrc and .vimrc files:
+
+```shell
 ln -s ~/Github/workflow/dotfiles/zsh/.zshrc ~/.zshrc
+ln -s ~/Github/workflow/dotfiles/vim/.vimrc ~/.vimrc
+```
 
 ## Permits
 
