@@ -1,4 +1,4 @@
-if [ $(hostname) = "mdizg-pim" ] || [ $(hostname) = "Pims-MacBook-Pro.local" ]; then
+if [ $(hostname) = "mdizg-pim" ] || [ $(hostname) = "Pims-MacBook-Pro.local" ] || [ $(hostname) = "Pims-MBP.local.tld" ]; then
     ZSH_DOTFILE_PATH="/Users/pbongaerts/Github/workflow/dotfiles/zsh"
 elif [ $(hostname) = "deepcat1" ]; then
     ZSH_DOTFILE_PATH="/home/pbongaerts/workflow/dotfiles/zsh"
