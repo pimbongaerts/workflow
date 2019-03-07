@@ -1,4 +1,4 @@
-if [ $(hostname) = "mdizg-pim" ]; then
+if [ $(hostname) = "mdizg-pim" ] || [ $(hostname) = "mlres-pim" ]; then
     alias notes="open -a /Applications/Typora.app ~/Dropbox/Notes"
     alias tp="open -a /Applications/Typora.app"
     alias meso="cd ~/Github/mesophotic"
