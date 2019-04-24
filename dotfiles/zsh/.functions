@@ -11,3 +11,6 @@ getss() { ls -Art ~/Desktop/Screenshots/Screen*.png  | tail -n 1 | xargs -I{} cp
 
 # Append last command to local README
 save() { fc -ln -1 >> README.md }
+
+# Mount server drive
+mount_deepcat1() { sshfs pbongaerts@deepcat1:/home/pbongaerts/ ~/mounts/deepcat1 }
