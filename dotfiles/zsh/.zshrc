@@ -1,4 +1,4 @@
-if [ $(hostname) = "mdizg-pim" ] || [ $(hostname) = "Pims-MacBook-Pro.local" ] || [ $(hostname) = "mlres-pim" ]; then
+if [ $(hostname) = "mdizg-pim" ] || [ $(hostname) = "mlres-pim" ]; then
     ZSH_DOTFILE_PATH="/Users/pbongaerts/Github/workflow/dotfiles/zsh"
 elif [ $(hostname) = "deepcat1" ]; then
     ZSH_DOTFILE_PATH="/home/pbongaerts/workflow/dotfiles/zsh"
@@ -24,3 +24,21 @@ source $ZSH_DOTFILE_PATH/.aliases
 # Functions
 echo "# FUNCTIONS"
 source $ZSH_DOTFILE_PATH/.functions
+
+if [ $(hostname) = "mdizg-pim" ] || [ $(hostname) = "mlres-pim" ]; then
+	echo "# CONDA"
+	# >>> conda initialize >>>
+	# !! Contents within this block are managed by 'conda init' !!
+	__conda_setup="$('/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+	if [ $? -eq 0 ]; then
+	    eval "$__conda_setup"
+	else
+	    if [ -f "/miniconda3/etc/profile.d/conda.sh" ]; then
+	        . "/miniconda3/etc/profile.d/conda.sh"
+	    else
+	        export PATH="/miniconda3/bin:$PATH"
+	    fi
+	fi
+	unset __conda_setup
+	# <<< conda initialize <<<
+fi
