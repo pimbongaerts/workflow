@@ -14,3 +14,7 @@ save() { fc -ln -1 >> README.md }
 
 # Mount server drive
 mount_deepcat1() { sshfs pbongaerts@deepcat1:/home/pbongaerts/ ~/mounts/deepcat1 }
+
+# Copy 'pwd' to clipboard (mac only)
+pc() { pwd | pbcopy }
+
