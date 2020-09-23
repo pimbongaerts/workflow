@@ -18,3 +18,5 @@ mount_deepcat1() { sshfs pbongaerts@deepcat1:/home/pbongaerts/ ~/mounts/deepcat1
 # Copy 'pwd' to clipboard (mac only)
 pc() { pwd | pbcopy }
 
+# Short-list of folder contents
+sl() { ls -lha "$@" | head; }
