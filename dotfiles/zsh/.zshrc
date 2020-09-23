@@ -1,8 +1,8 @@
 if [ $(hostname) = "mdizg-pim" ] || [ $(hostname) = "mlres-pim" ]; then
     ZSH_DOTFILE_PATH="/Users/pbongaerts/Github/workflow/dotfiles/zsh"
-elif [ $(hostname) = "deepcat1" && $USERNAME = "deepcat" ]; then
+elif [ $(hostname) = "deepcat1" ] && [ $USERNAME = "deepcat" ]; then
     ZSH_DOTFILE_PATH="/home/deepcat/workflow/dotfiles/zsh"
-elif [ $(hostname) = "deepcat1" && $USERNAME = "pbongaerts" ]; then
+elif [ $(hostname) = "deepcat1" ] && [ $USERNAME = "pbongaerts" ]; then
     ZSH_DOTFILE_PATH="/home/pbongaerts/workflow/dotfiles/zsh"
 fi
 
