@@ -4,7 +4,8 @@ if [ $(hostname) = "mdizg-pim" ] || [ $(hostname) = "mlres-pim" ]; then
     alias sb="open -a Sublime\ Text"
     alias meso="cd ~/Github/mesophotic"
     alias scripts="cd ~/Github/radseq"
-elif [ $(hostname) = "deepcat1" ] && [ $USERNAME = "deepcat" ]; then
+    alias darktable-cli='/Applications/darktable.app/Contents/MacOS/darktable-cli'
+elif [ $USERNAME = "deepcat" ]; then
     alias sb="~/tools/sublime_text_3/sublime_text"
     alias densecloud="~/tools/metashape-pro/metashape.sh -platform offscreen -r ~/reefscape/scripts/create_dense_cloud.py"
 fi
