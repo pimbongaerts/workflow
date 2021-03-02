@@ -29,3 +29,14 @@ Retrieve updated list of (facultatively) zooxanthellate scleractinian genera for
 > join -t , <(curl -s https://coraltraits.org/traits/35.csv\?taxonomy\=on | grep -v "observation_id" | cut -d, -f4,5,7,8,22 | sort) <(curl -s https://coraltraits.org/traits/41.csv\?taxonomy\=on | grep -v "observation_id" | cut -d, -f4,5,22 | sort) | grep -v "azooxanthellate" | grep "Indian Ocean" | awk -F'[, ]' '{print "Family " $4 "," $2 " spp."}' | sort | uniq
 ```
 
+### Compile updated list of co-authors
+
+Retrieve a list of co-authors from Google Scholar (usingthe scholarly module - https://pypi.org/project/scholarly/)  based on publications from a certain time range. 
+
+```shell
+# Install scholarly
+$ pip install scholarly
+# Usage example: get all co-authors of Steven A Cholewiak (developer of scholarly) for articles published between 2020 and 2021, but ignoring publications with more than 10 co-authors (-m 10), and including those without a publication year (-i)
+$ python3 scholar_get_coauthors.py 'Steven A Cholewiak' 2020 2021 -m 10 -i
+```
+
