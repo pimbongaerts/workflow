@@ -5,7 +5,8 @@ if [ $(hostname) = "mdizg-pim" ] || [ $(hostname) = "mlres-pim" ]; then
     alias meso="cd ~/Github/mesophotic"
     alias scripts="cd ~/Github/radseq"
     alias darktable-cli='/Applications/darktable.app/Contents/MacOS/darktable-cli'
-elif [ $USERNAME = "deepcat" ]; then
+    alias cheat="cat ~/Dropbox/Notes/cheatsheet.md;"
+elif [ $USERNAME = "deepcat" ] || [ $USERNAME = "pbongaerts" ]; then
     alias sb="~/tools/sublime_text_3/sublime_text"
     alias densecloud="~/tools/metashape-pro/metashape.sh -platform offscreen -r ~/reefscape/scripts/create_dense_cloud.py"
 fi
