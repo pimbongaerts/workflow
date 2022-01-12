@@ -71,7 +71,7 @@ def main(author_name):
              #'eprint_url': pub.get('pub_url', '') # seems to be same as pub_url
         })
 
-    output_markdown(data)
+    output_json(data)
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description=__doc__)

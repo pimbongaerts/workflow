@@ -28,4 +28,10 @@ if [ $USERNAME = "deepcat" ] || [ $USERNAME = "pbongaerts" ]; then
         git --git-dir=/home/deepcat/reefscape/.git/ --work-tree=/home/deepcat/reefscape/ commit -am 'Automatic report update'
         git push
     }
+    create_batch_job() {
+        cd ~/reefscape/current_batch_jobs/
+        ../scripts/create_batch_files.py
+        git --git-dir=/home/deepcat/reefscape/.git/ --work-tree=/home/deepcat/reefscape/ commit -am 'Create batch job scripts'
+        git push
+    }
 fi
