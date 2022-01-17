@@ -24,7 +24,7 @@ sl() { ls -lha "$@" | head; }
 if [ $USERNAME = "deepcat" ] || [ $USERNAME = "pbongaerts" ]; then
     modelreport() {
         cd ~/reefscape/scripts/
-        model_report.py > ~/reefscape/report/README.md
+        ./model_report.py > ~/reefscape/report/README.md
         git --git-dir=/home/deepcat/reefscape/.git/ --work-tree=/home/deepcat/reefscape/ commit -am 'Automatic report update'
         git push
     }
