@@ -9,4 +9,5 @@ if [ $(hostname) = "mdizg-pim" ] || [ $(hostname) = "mlres-pim" ]; then
 elif [ $USERNAME = "deepcat" ] || [ $USERNAME = "pbongaerts" ]; then
     alias sb="~/tools/sublime_text_3/sublime_text"
     alias densecloud="~/tools/metashape-pro/metashape.sh -platform offscreen -r ~/reefscape/scripts/create_dense_cloud.py"
+    alias create_ortho=" ~/tools/metashape-pro-1.8/metashape.sh -platform offscreen -r ~/reefscape/scripts/create_ortho.py"
 fi
