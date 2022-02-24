@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<batchjobs version="1.6.4" save_project="true">
+  <job name="AlignPhotos" target="all">
+    <keypoint_limit>5000</keypoint_limit>
+    <mask_tiepoints>false</mask_tiepoints>
+    <reference_preselection>false</reference_preselection>
+    <reset_alignment>true</reset_alignment>
+    <reset_matches>true</reset_matches>
+    <tiepoint_limit>0</tiepoint_limit>
+  </job>
+  <job name="BuildDenseCloud" target="all">
+    <downscale>2</downscale>
+    <point_confidence>true</point_confidence>
+  </job>
+  <job name="ExportPoints" target="all">
+    <format>2</format>
+    <path>./</path>
+  </job>
+</batchjobs>
