@@ -36,7 +36,7 @@ if [ $(hostname) = "mdizg-pim" ] || [ $(hostname) = "mlres-pim" ]; then
 	    eval "$__conda_setup"
 	else
 	    if [ -f "/miniconda3/etc/profile.d/conda.sh" ]; then
-	        . "/miniconda3/etc/profile.d/conda.sh"
+# . "/miniconda3/etc/profile.d/conda.sh"  # commented out by conda initialize
 	    else
 	        export PATH="/miniconda3/bin:$PATH"
 	    fi
@@ -51,9 +51,9 @@ elif [ $USERNAME = "pbongaerts" ]; then
 	    eval "$__conda_setup"
 	else
 	    if [ -f "/home/pbongaerts/CCG_installed_tools/anaconda3/etc/profile.d/conda.sh" ]; then
-	        . "/home/pbongaerts/CCG_installed_tools/anaconda3/etc/profile.d/conda.sh"
+# . "/home/pbongaerts/CCG_installed_tools/anaconda3/etc/profile.d/conda.sh"  # commented out by conda initialize
 	    else
-	        export PATH="/home/pbongaerts/CCG_installed_tools/anaconda3/bin:$PATH"
+# export PATH="/home/pbongaerts/CCG_installed_tools/anaconda3/bin:$PATH"  # commented out by conda initialize
 	    fi
 	fi
 	unset __conda_setup
