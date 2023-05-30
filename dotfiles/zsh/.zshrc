@@ -43,6 +43,9 @@ if [ $(hostname) = "mdizg-pim" ] || [ $(hostname) = "mlres-pim" ]; then
 	fi
 	unset __conda_setup
 	# <<< conda initialize <<<
+	source /usr/local/opt/chruby/share/chruby/chruby.sh
+	source /usr/local/opt/chruby/share/chruby/auto.sh
+	chruby ruby-3.1.3
 elif [ $USERNAME = "pbongaerts" ]; then
 	# >>> conda initialize >>>
 	# !! Contents within this block are managed by 'conda init' !!
@@ -59,3 +62,4 @@ elif [ $USERNAME = "pbongaerts" ]; then
 	unset __conda_setup
 	# <<< conda initialize <<<
 fi
+

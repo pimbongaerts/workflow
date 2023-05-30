@@ -12,4 +12,5 @@ elif [ $USERNAME = "deepcat" ] || [ $USERNAME = "pbongaerts" ]; then
     alias create_ortho="~/tools/metashape-pro/metashape.sh -platform offscreen -r ~/reefscape/scripts/create_ortho.py"
     alias get_cameras="~/tools/metashape-pro/metashape.sh -platform offscreen -r ~/reefscape/scripts/get_cameras.py"
     alias convert_cameras="python3 ~/reefscape/scripts/convert_cameras.py"
+    alias goto="python3 go_to_model_folder.py"
 fi
