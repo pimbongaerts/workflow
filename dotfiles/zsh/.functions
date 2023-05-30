@@ -37,4 +37,4 @@ if [ $USERNAME = "deepcat" ] || [ $USERNAME = "pbongaerts" ]; then
 fi
 
 # Go to model folder
-goto() { cd "$(python3 ~/workflow/scripts/get_model_folder.py "$1")"
+goto() { cd "$(python3 ~/workflow/scripts/get_model_folder.py "$1")" }
