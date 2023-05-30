@@ -35,3 +35,6 @@ if [ $USERNAME = "deepcat" ] || [ $USERNAME = "pbongaerts" ]; then
         git push
     }
 fi
+
+# Go to model folder
+goto() { cd "$(python3 ~/workflow/scripts/get_model_folder.py "$1")"
