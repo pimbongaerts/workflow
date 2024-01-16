@@ -23,15 +23,15 @@ sl() { ls -lha "$@" | head; }
 
 if [ $USERNAME = "deepcat" ] || [ $USERNAME = "pbongaerts" ]; then
     modelreport() {
-        cd ~/reefscape/scripts/
-        ./model_report.py > ~/reefscape/report/README.md
-        git --git-dir=/home/deepcat/reefscape/.git/ --work-tree=/home/deepcat/reefscape/ commit -am 'Automatic report update'
+        cd ~/coralscape20k/scripts/
+        ./model_report.py > ~/coralscape20k/report/README.md
+        git --git-dir=/home/deepcat/coralscape20k/.git/ --work-tree=/home/deepcat/coralscape20k/ commit -am 'Automatic report update'
         git push
     }
     create_batch_job() {
-        cd ~/reefscape/current_batch_jobs/
-        ~/reefscape/scripts/create_batch_files.py ~/reefscape/report/README.md
-        git --git-dir=/home/deepcat/reefscape/.git/ --work-tree=/home/deepcat/reefscape/ commit -am 'Create batch job scripts'
+        cd ~/coralscape20k/current_batch_jobs/
+        ~/coralscape20k/scripts/create_batch_files.py ~/coralscape20k/report/README.md
+        git --git-dir=/home/deepcat/coralscape20k/.git/ --work-tree=/home/deepcat/coralscape20k/ commit -am 'Create batch job scripts'
         git push
     }
 fi
