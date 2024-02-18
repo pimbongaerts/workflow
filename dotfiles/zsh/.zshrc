@@ -1,4 +1,4 @@
-if [ $(hostname) = "mdizg-pim" ] || [ $(hostname) = "mlres-pim" ]; then
+if [ $(hostname) = "mlizg-pim" ] || [ $(hostname) = "mlres-pim" ]; then
     ZSH_DOTFILE_PATH="/Users/pbongaerts/Github/workflow/dotfiles/zsh"
 elif [ $USERNAME = "deepcat" ]; then
     ZSH_DOTFILE_PATH="/home/deepcat/workflow/dotfiles/zsh"
@@ -63,3 +63,4 @@ elif [ $USERNAME = "pbongaerts" ]; then
 	# <<< conda initialize <<<
 fi
 
+export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
