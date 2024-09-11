@@ -38,3 +38,18 @@ fi
 
 # Go to model folder
 goto() { cd "$(python3 ~/workflow/scripts/get_model_folder.py "$1")" }
+
+resetplot() {
+	if [[ "$(pwd)" == /mnt/coral3d/focal_plots* ]]; then
+    		rm *.ply
+		rm *.log
+		rm *.xml
+		rm *.json
+		rm *.psx	
+		rm *.csv
+		rm -rf *.files/
+		rm -rf *.vis/
+	else
+    		echo "You are not in the /mnt/coral3d/focal_plots directory."
+	fi
+}
