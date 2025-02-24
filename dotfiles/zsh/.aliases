@@ -9,6 +9,7 @@ if [ $(hostname) = "mlizg-pim" ] || [ $(hostname) = "mlres-pim" ]; then
 elif [ $USERNAME = "deepcat" ] || [ $USERNAME = "pbongaerts" ]; then
     alias sb="~/tools/sublime_text_3/sublime_text"
     alias densecloud="~/tools/metashape-pro/metashape.sh -platform offscreen -r ~/reefscape/metashape_create_dense_cloud.py; /home/deepcat/tools/local_scripts/post_to_slack.sh densecloud_done"
+    alias export_densecloud="~/tools/metashape-pro/metashape.sh -platform offscreen -r ~/reefscape/metashape_create_dense_cloud.py -e; /home/deepcat/tools/local_scripts/post_to_slack.sh export_done"
     alias create_ortho="~/tools/metashape-pro/metashape.sh -platform offscreen -r ~/reefscape/scripts/create_ortho.py"
     alias get_cameras="~/tools/metashape-pro/metashape.sh -platform offscreen -r ~/reefscape/scripts/get_cameras.py"
     alias convert_cameras="python3 ~/reefscape/scripts/convert_cameras.py"

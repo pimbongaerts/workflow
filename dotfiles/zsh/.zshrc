@@ -27,22 +27,24 @@ source $ZSH_DOTFILE_PATH/.aliases
 echo "# FUNCTIONS"
 source $ZSH_DOTFILE_PATH/.functions
 
-if [ $(hostname) = "mdizg-pim" ] || [ $(hostname) = "mlres-pim" ]; then
+if [ $(hostname) = "mlizg-pim" ] || [ $(hostname) = "mlres-pim" ]; then
 	echo "# CONDA"
+
 	# >>> conda initialize >>>
 	# !! Contents within this block are managed by 'conda init' !!
-	__conda_setup="$('/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+	__conda_setup="$('/Users/pbongaerts/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
 	if [ $? -eq 0 ]; then
 	    eval "$__conda_setup"
 	else
-	    if [ -f "/miniconda3/etc/profile.d/conda.sh" ]; then
-# . "/miniconda3/etc/profile.d/conda.sh"  # commented out by conda initialize
+	    if [ -f "/Users/pbongaerts/miniconda3/etc/profile.d/conda.sh" ]; then
+	        . "/Users/pbongaerts/miniconda3/etc/profile.d/conda.sh"
 	    else
-# export PATH="/miniconda3/bin:$PATH"  # commented out by conda initialize
+	        export PATH="/Users/pbongaerts/miniconda3/bin:$PATH"
 	    fi
 	fi
 	unset __conda_setup
 	# <<< conda initialize <<<
+
 	source /usr/local/opt/chruby/share/chruby/chruby.sh
 	source /usr/local/opt/chruby/share/chruby/auto.sh
 	chruby ruby-3.1.3
@@ -64,3 +66,6 @@ elif [ $USERNAME = "pbongaerts" ]; then
 fi
 
 export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
+source /opt/homebrew/opt/chruby/share/chruby/chruby.sh
+source /opt/homebrew/opt/chruby/share/chruby/auto.sh
+chruby ruby-3.3.5

@@ -5,7 +5,7 @@ Get basepath of specific model or timepoint
 import os
 import sys
 
-BASEPATH = "/mnt/coral3d/focal_plots"
+BASEPATH = "/home/coral3d/focal_plots"
 
 model_arg = sys.argv[1]
 cols = model_arg.split('_')
