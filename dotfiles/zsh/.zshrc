@@ -1,5 +1,7 @@
 if [ $(hostname) = "mlizg-pim" ] || [ $(hostname) = "mlres-pim" ]; then
     ZSH_DOTFILE_PATH="/Users/pbongaerts/Github/workflow/dotfiles/zsh"
+elif [ $(hostname) = "deepkat" ]; then
+	ZSH_DOTFILE_PATH="/home/pbongaerts/Github/workflow/dotfiles/zsh"
 elif [ $USERNAME = "deepcat" ]; then
     ZSH_DOTFILE_PATH="/home/deepcat/workflow/dotfiles/zsh"
 elif [ $USERNAME = "pbongaerts" ]; then
