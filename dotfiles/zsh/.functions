@@ -12,44 +12,46 @@ getss() { ls -Art ~/Desktop/Screenshots/Screen*.png  | tail -n 1 | xargs -I{} cp
 # Append last command to local README
 save() { fc -ln -1 >> README.md }
 
-# Mount server drive
-mount_deepcat1() { sshfs pbongaerts@deepcat1:/home/pbongaerts/ ~/mounts/deepcat1 }
-
 # Copy 'pwd' to clipboard (mac only)
 pc() { pwd | pbcopy }
 
 # Short-list of folder contents
 sl() { ls -lha "$@" | head; }
 
-if [ $USERNAME = "deepcat" ] || [ $USERNAME = "pbongaerts" ]; then
-    modelreport() {
-        cd ~/coralscape20k/scripts/
-        ./model_report.py > ~/coralscape20k/report/README.md
-        git --git-dir=/home/deepcat/coralscape20k/.git/ --work-tree=/home/deepcat/coralscape20k/ commit -am 'Automatic report update'
-        git push
-    }
-    create_batch_job() {
-        cd ~/coralscape20k/current_batch_jobs/
-        ~/coralscape20k/scripts/create_batch_files.py ~/coralscape20k/report/README.md
-        git --git-dir=/home/deepcat/coralscape20k/.git/ --work-tree=/home/deepcat/coralscape20k/ commit -am 'Create batch job scripts'
-        git push
-    }
-fi
+modelreport() {
+    cd ~/coralscape20k/scripts/
+    ./model_report.py > ~/coralscape20k/report/README.md
+    git --git-dir=/home/deepcat/coralscape20k/.git/ --work-tree=/home/deepcat/coralscape20k/ commit -am 'Automatic report update'
+    git push
+}
+create_batch_job() {
+    cd ~/coralscape20k/current_batch_jobs/
+    ~/coralscape20k/scripts/create_batch_files.py ~/coralscape20k/report/README.md
+    git --git-dir=/home/deepcat/coralscape20k/.git/ --work-tree=/home/deepcat/coralscape20k/ commit -am 'Create batch job scripts'
+    git push
+}
 
 # Go to model folder
 goto() { cd "$(python3 ~/workflow/scripts/get_model_folder.py "$1")" }
 
 resetplot() {
-	if [[ "$(pwd)" == /home/coral3d/focal_plots* ]]; then
-    		rm *.ply
-		rm *.log
-		rm *.xml
-		rm *.json
-		rm *.psx	
-		rm *.csv
-		rm -rf *.files/
-		rm -rf *.vis/
-	else
-    		echo "You are not in the /home/coral3d/focal_plots directory."
-	fi
+    # check for presence of a .psx file in current dir
+    if ! ls *.psx >/dev/null 2>&1; then
+        echo "No .psx file found in this folder. Aborting."
+        return 1
+    fi
+
+    # confirmation prompt
+    echo "This will delete .ply, .log, .xml, .json, .psx, .csv and related dirs in $(pwd)"
+    read "reply?Are you sure you want to continue? (y/N) "
+    if [[ ! "$reply" =~ ^[Yy]$ ]]; then
+        echo "Aborted."
+        return 1
+    fi
+
+    # perform deletions
+    rm -f *.ply *.log *.xml *.json *.psx *.csv
+    rm -rf *.files/ *.vis/
+
+    echo "Cleanup done."
 }
