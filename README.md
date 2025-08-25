@@ -5,6 +5,16 @@ Using [zotero](https://www.zotero.org/) with [ZotFile](http://zotfile.com/). Kee
 [Spectacle](https://github.com/eczarny/spectacle) provides easy window management on the Mac, with customizable shorcuts to neatly organize windows across screen(s).
 
 ## Terminal
+Zsh / Oh my Zsh / Antigen install:
+```
+sudo apt install zsh
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+curl -L git.io/antigen > antigen.zsh
+mkdir .antigen
+mv antigen.zsh .antigen
+ln -s ~/Github/workflow/dotfiles/zsh/.zshrc ~/.zshrc
+```
+
 Oh My Zsh - configuration manager for zsh: https://github.com/robbyrussell/oh-my-zsh
 Antigen - plug-in manager for zsh: https://github.com/zsh-users/antigen
 Vundle - plug-in manager for vim: https://github.com/VundleVim/Vundle.vim
@@ -14,11 +24,8 @@ sudo ln -s /Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl /usr/
 
 Use CAPSLOCK as ESCAPE through System Preferences > Keyboard > Modified Keys
 
-Created a symlink for .zshrc and .vimrc files:
-
 ```shell
 ln -s ~/Github/workflow/dotfiles/zsh/.zshrc ~/.zshrc
-ln -s ~/Github/workflow/dotfiles/vim/.vimrc ~/.vimrc
 ```
 
 ## Permits
