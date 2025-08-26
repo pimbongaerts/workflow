@@ -1,0 +1,62 @@
+# ~/.zshrc.conda.cross
+# Manual, order-controlled conda init for zsh.
+
+# Optional hard override (set in environment if you want):
+# export CONDA_ROOT_OVERRIDE="$HOME/miniconda3"
+
+# Decide home prefix by OS (Darwin vs Linux) and by user.
+if [[ "$OSTYPE" == darwin* ]]; then
+  _base="/Users"
+else
+  _base="/home"
+fi
+
+case "$USER" in
+  pbongaerts|deepcat) _home="$_base/$USER" ;;
+  *)                  _home="$HOME" ;;
+esac
+
+# Prefer explicit override, otherwise probe common installs.
+if [[ -n "$CONDA_ROOT_OVERRIDE" ]]; then
+  CONDA_ROOT="$CONDA_ROOT_OVERRIDE"
+else
+  # Probe in order; first match wins.
+  _candidates=(
+    "$_home/miniconda3"
+    "$_home/mambaforge"
+    "$_home/miniforge3"
+    "$_home/anaconda3"
+  )
+  CONDA_ROOT=""
+  for _r in "${_candidates[@]}"; do
+    if [[ -x "$_r/bin/conda" ]]; then
+      CONDA_ROOT="$_r"
+      break
+    fi
+  done
+  # As a last resort, if conda is already on PATH, use that base.
+  if [[ -z "$CONDA_ROOT" ]] && command -v conda >/dev/null 2>&1; then
+    CONDA_ROOT="$(conda info --base 2>/dev/null)"
+  fi
+fi
+
+# Load conda if found
+if [[ -n "$CONDA_ROOT" && -x "$CONDA_ROOT/bin/conda" ]]; then
+  eval "$("$CONDA_ROOT/bin/conda" shell.zsh hook)"
+  # Optional: auto-activate base (uncomment if desired)
+  # conda activate base
+else
+  # Fallbacks for very old conda layouts
+  if [[ -f "$CONDA_ROOT/etc/profile.d/conda.sh" ]]; then
+    . "$CONDA_ROOT/etc/profile.d/conda.sh"
+  elif [[ -d "$CONDA_ROOT/bin" ]]; then
+    export PATH="$CONDA_ROOT/bin:$PATH"
+  else
+    # Not found; stay silent in non-interactive shells.
+    if [[ $- == *i* ]]; then
+      echo "Conda not found under $_home; set CONDA_ROOT_OVERRIDE." >&2
+    fi
+  fi
+fi
+
+unset _base _home _candidates _r

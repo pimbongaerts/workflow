@@ -28,3 +28,8 @@ source $ZSH_DOTFILE_PATH/.aliases
 # Functions
 echo "# FUNCTIONS"
 source $ZSH_DOTFILE_PATH/.functions
+
+# Load Conda (manual)
+if [[ $- == *i* ]]; then
+  source "$ZSH_DOTFILE_PATH/.conda_init"
+fi
