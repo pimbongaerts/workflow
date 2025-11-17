@@ -81,6 +81,17 @@ def main():
     # Get current working directory
     cwd = os.getcwd()
 
+    # Extract parent folder name from target_path
+    # Remove trailing slash and get basename
+    parent_folder = os.path.basename(target_path.rstrip("/"))
+    if not parent_folder:
+        # If basename is empty, get the last non-empty component
+        parent_folder = os.path.basename(os.path.dirname(target_path.rstrip("/")))
+
+    # Create destination folder in current working directory
+    dest_folder = os.path.join(cwd, parent_folder)
+    os.makedirs(dest_folder, exist_ok=True)
+
     # Construct rsync command
     remote_path = f"{USERNAME}@{COMPUTER}:{target_path}"
     rsync_cmd = ["rsync", "-avz"]
@@ -115,10 +126,10 @@ def main():
             f"(excluding files over {args.max_filesize} and subfolders)..."
         )
 
-    rsync_cmd.extend([remote_path, cwd])
+    rsync_cmd.extend([remote_path, dest_folder])
 
     print(f"From: {USERNAME}@{COMPUTER}")
-    print(f"To: {cwd}")
+    print(f"To: {dest_folder}")
     subprocess.run(rsync_cmd)
 
 
