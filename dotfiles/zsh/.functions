@@ -34,6 +34,9 @@ create_batch_job() {
 # Go to model folder
 goto() { cd "$(python3 ~/workflow/scripts/get_model_folder.py "$1")" }
 
+# Download model folder
+download() { python3 ~/workflow/scripts/download_model_folder.py "$@" }
+
 resetplot() {
     # check for presence of a .psx file in current dir
     if ! ls *.psx >/dev/null 2>&1; then
