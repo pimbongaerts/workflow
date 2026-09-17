@@ -33,3 +33,4 @@ source $ZSH_DOTFILE_PATH/.functions
 if [[ $- == *i* ]]; then
   source "$ZSH_DOTFILE_PATH/.conda_init"
 fi
+export PATH="$HOME/.local/bin:$PATH"
